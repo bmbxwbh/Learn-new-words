@@ -36,11 +36,12 @@ android {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
 
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+    packaging {
+    resources {
+        excludes += "/META-INF/{AL2.0,LGPL2.1}"
     }
+}
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
