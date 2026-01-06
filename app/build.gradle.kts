@@ -1,3 +1,10 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+}
+
 android {
     namespace = "com.wordflow"
     compileSdk = 33
@@ -24,28 +31,35 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1_8"
-    }
-    buildFeatures {
-        compose = true
-    }
+
+    // 添加 composeOptions 块
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
+
+    // 添加 packagingOptions 块
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1_8"
+    }
+
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
-    // Core Android & Compose
+    // Core Android & Compose (降级到与 API 33 兼容的版本)
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.2")
@@ -101,9 +115,4 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
-plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
-}
+
