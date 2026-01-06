@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.wordflow"
-    compileSdk = 33 // 修改为 33
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.wordflow"
         minSdk = 26
-        targetSdk = 33 // 修改为 33
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -42,9 +42,7 @@ android {
         compose = true
     }
     composeOptions {
-        // 注意：compose-compiler 版本需要与 Kotlin 版本匹配
-        // 对于 Kotlin 1.8.10, 1.5.3 是一个安全的选择
-        kotlinCompilerExtensionVersion = "1.4.3" 
+        kotlinCompilerExtensionVersion = "1.4.3"
     }
     packagingOptions {
         resources {
@@ -55,10 +53,10 @@ android {
 
 dependencies {
     // Core Android & Compose
-    implementation("androidx.core:core-ktx:1.10.1") // 降级以匹配 API 33
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.2")
-    implementation(platform("androidx.compose:compose-bom:2023.03.00")) // 降级 BOM
+    implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
