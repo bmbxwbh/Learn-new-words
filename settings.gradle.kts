@@ -1,4 +1,3 @@
-
 pluginManagement {
     repositories {
         google()
@@ -15,4 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "WordFlow"
 include(":app")
+
 
