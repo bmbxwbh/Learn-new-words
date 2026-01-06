@@ -21,17 +21,21 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      # 注释掉或删除下面这两行
-      # - name: Grant execute permission for gradlew
-      #   run: chmod +x ./gradlew
+      # 新增：生成 Gradle Wrapper
+      - name: Generate Gradle Wrapper
+        run: |
+          gradle wrapper --gradle-version 8.1
 
+      # 新增：为生成的 wrapper 脚本添加执行权限
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      # 使用我们生成的、版本正确的 gradlew
       - name: Build with Gradle
-        # 使用 gradle 命令而不是 ./gradlew
-        run: gradle assembleDebug
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
           path: app/build/outputs/apk/debug/app-debug.apk
-
