@@ -87,8 +87,10 @@ dependencies {
 
     implementation("com.google.mlkit:text-recognition:16.0.0")
 
-    def camerax_version = "1.2.3"
-    implementation("androidx.camera:camera-core:${camerax_version}")
+// 正确的 Kotlin 写法
+val camerax_version = "1.2.3"
+implementation("androidx.camera:camera-core:${camerax_version}")
+
     implementation("androidx.camera:camera-camera2:${camerax_version}")
     implementation("androidx.camera:camera-lifecycle:${camerax_version}")
     implementation("androidx.camera:camera-view:${camerax_version}")
