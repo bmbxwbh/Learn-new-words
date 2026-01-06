@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -8,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.wordflow"
-    compileSdk = 34
+    compileSdk = 34 // 确保这一行存在且值为 34
 
     defaultConfig {
         applicationId = "com.wordflow"
@@ -109,4 +108,3 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
-
